@@ -17,8 +17,6 @@ services:
     depends_on:
       ckan:
         condition: service_healthy
-    ports:
-      - "0.0.0.0:${NGINX_SSLPORT_HOST}:${NGINX_SSLPORT}"
     
   ckan:
     build:
