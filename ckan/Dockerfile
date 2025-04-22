@@ -3,6 +3,23 @@ FROM ckan/ckan-base:2.11
 # Install any extensions needed by your CKAN instance
 # See Dockerfile.dev for more details and examples
 
+USER root
+
+### Scheming ###
+RUN  pip3 install 'git+https://github.com/ckan/ckanext-scheming.git@master#egg=ckanext-scheming'
+
+### Pages ###
+RUN  pip3 install git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages
+
+### Fluent ### 
+RUN  pip3 install git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git#egg=ckanext-fluent
+
+### Transportdata ### 
+RUN  pip3 install git+https://github.com/belgium-its-steering-committee/ckanext-transportdata.git#egg=ckanext-transportdata
+
+### Hidegroups ###
+RUN  pip3 install git+https://github.com/belgium-its-steering-committee/ckanext-hidegroups.git@development#egg=ckanext-hidegroups
+
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
 
