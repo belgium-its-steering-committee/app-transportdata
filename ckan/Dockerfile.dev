@@ -27,6 +27,9 @@ RUN  pip3 install -e 'git+https://github.com/ckan/ckanext-scheming.git@master#eg
 ### Pages ###
 RUN  pip3 install -e git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages
 
+### Fluent ### 
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git#egg=ckanext-fluent
+
 ### DCAT ###
 #RUN  pip3 install -e git+https://github.com/ckan/ckanext-dcat.git@v0.0.6#egg=ckanext-dcat && \
 #     pip3 install -r https://raw.githubusercontent.com/ckan/ckanext-dcat/v0.0.6/requirements.txt
