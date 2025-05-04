@@ -10,3 +10,5 @@ local/*
 .env
 
 .cookiecutter_replay
+
+docker-compose.override.yml
