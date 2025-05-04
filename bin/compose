@@ -3,4 +3,4 @@
 set -e
 ROOT="$(dirname ${BASH_SOURCE[0]})/.."
 
-docker compose -f "${ROOT}/docker-compose.dev.yml" "$@"
+docker compose -f "${ROOT}/docker-compose.dev.yml" -f "${ROOT}/docker-compose.override.yml" "$@"
