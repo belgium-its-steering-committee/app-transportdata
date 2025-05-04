@@ -8,7 +8,7 @@ RUN mkdir /srv/app/.local && chown ckan /srv/app/.local
 USER ckan
 
 ### Scheming ###
-RUN  pip3 install -e 'git+https://github.com/ckan/ckanext-scheming.git@master#egg=ckanext-scheming'
+RUN  pip3 install -e git+https://github.com/ckan/ckanext-scheming.git@release-3.1.0#egg=ckanext-scheming
 
 ### Pages ###
 RUN  pip3 install -e git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages
