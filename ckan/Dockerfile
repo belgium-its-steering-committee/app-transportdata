@@ -19,6 +19,9 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 ### Transportdata ### 
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-transportdata.git#egg=ckanext-transportdata
 
+### Benap ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@CKAN-2.11-upgrade#egg=ckanext-benap
+
 ### Hidegroups ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-hidegroups.git@development#egg=ckanext-hidegroups
 
