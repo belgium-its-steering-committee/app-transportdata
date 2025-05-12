@@ -1,0 +1,10 @@
+ARG SOLR_IMAGE_VERSION=2.10-solr9
+
+FROM ckan/ckan-solr:${SOLR_IMAGE_VERSION}
+
+USER root
+
+ADD ./conf/schema.xml $SOLR_SCHEMA_FILE
+RUN chmod 644 $SOLR_SCHEMA_FILE 
+
+USER solr
