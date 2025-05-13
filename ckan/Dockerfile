@@ -14,7 +14,7 @@ RUN  pip3 install -e git+https://github.com/ckan/ckanext-scheming.git@release-3.
 RUN  pip3 install -e git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages
 
 ### Fluent ### 
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git#egg=ckanext-fluent
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git@MobilityDCAT/root#egg=ckanext-fluent
 
 ### Transportdata ### 
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-transportdata.git#egg=ckanext-transportdata
