@@ -19,7 +19,7 @@ FROM ckan/ckan-dev:2.11
 RUN  pip3 install -e git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages
 
 ### Fluent ### 
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git#egg=ckanext-fluent
+# RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git#egg=ckanext-fluent
 
 ### Spatial Metadata ###
 # RUN  pip3 install -e git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial
