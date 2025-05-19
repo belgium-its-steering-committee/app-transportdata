@@ -16,7 +16,7 @@ FROM ckan/ckan-dev:2.11
 # RUN  pip3 install -e 'git+https://github.com/ckan/ckanext-scheming.git@master#egg=ckanext-scheming'
 
 ### Pages ###
-RUN  pip3 install -e git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages
+# RUN  pip3 install -e git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages
 
 ### Fluent ### 
 # RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git#egg=ckanext-fluent
