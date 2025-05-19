@@ -11,7 +11,7 @@ USER ckan
 RUN  pip3 install -e git+https://github.com/ckan/ckanext-scheming.git@release-3.1.0#egg=ckanext-scheming
 
 ### Pages ###
-RUN  pip3 install -e git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-pages.git@CKAN-2.11-upgrade#egg=ckanext-pages
 
 ### Fluent ### 
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git@MobilityDCAT/root#egg=ckanext-fluent
