@@ -25,6 +25,9 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 ### Hidegroups ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-hidegroups.git@development#egg=ckanext-hidegroups
 
+### Mailchimp ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-mailchimp.git@CKAN-2.11-upgrade#egg=ckanext-mailchimp
+
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
 
