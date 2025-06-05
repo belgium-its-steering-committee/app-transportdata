@@ -29,8 +29,7 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-mailchimp.git@CKAN-2.11-upgrade#egg=ckanext-mailchimp
 
 ### YTP Request ###
-# Cannot add this here because private repository
-# RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-ytp-request.git@CKAN-2.11-upgrade#egg=ckanext-ytp-request
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-ytp-request.git@CKAN-2.11-upgrade#egg=ckanext-ytp-request
 
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
