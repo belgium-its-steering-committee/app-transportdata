@@ -31,6 +31,9 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 ### YTP Request ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-ytp-request.git@CKAN-2.11-upgrade#egg=ckanext-ytp-request
 
+### DCAT ###
+RUN  pip3 install -e git+https://github.com/ckan/ckanext-dcat.git@v2.4.0#egg=ckanext-dcat
+
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
 
