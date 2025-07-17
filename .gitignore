@@ -7,7 +7,7 @@ _service-provider/*
 _solr/schema.xml
 _src/*
 local/*
-.env
+.env.secrets
 
 .cookiecutter_replay
 
