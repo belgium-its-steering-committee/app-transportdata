@@ -18,7 +18,7 @@ services:
       - solrnet
       - redisnet
     env_file:
-      - .env.config
+      - .env
       - .env.secrets
     depends_on:
       db:
@@ -55,8 +55,16 @@ services:
       context: postgresql/
     networks:
       - dbnet
-    env_file:
-      - .env.config
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+      - CKAN_DB_USER
+      - CKAN_DB_PASSWORD
+      - CKAN_DB
+      - DATASTORE_READONLY_USER
+      - DATASTORE_READONLY_PASSWORD
+      - DATASTORE_DB
     volumes:
       - pg_data:/var/lib/postgresql/data
     restart: unless-stopped
