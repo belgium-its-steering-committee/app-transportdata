@@ -5,19 +5,7 @@ volumes:
   pip_cache:
   site_packages:
 
-services:
-
-  nginx:
-    build:
-      context: nginx/
-      dockerfile: Dockerfile
-    networks:
-      - webnet
-      - ckannet
-    depends_on:
-      ckan:
-        condition: service_healthy
-    
+services:    
   ckan:
     build:
       context: ckan/
