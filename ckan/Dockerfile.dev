@@ -43,9 +43,8 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 ### DCAT ###
 RUN  pip3 install -e git+https://github.com/ckan/ckanext-dcat.git@v2.4.0#egg=ckanext-dcat
 
-### customDCAT ###
-# Private repo. This won't pull
-RUN  pip3 install -e git+https://github.com/redpencilio/ckanext-dcat-be-napits.git#egg=ckanext-dcat-be-napits
+### custom DCAT (including MobilityDCAT) ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-dcat-be-napits.git#egg=ckanext-dcat-be-napits
 
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
