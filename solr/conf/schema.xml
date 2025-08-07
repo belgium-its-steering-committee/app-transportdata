@@ -149,7 +149,8 @@ attribute with the form `ckan-X.Y` -->
 
     <field name="nap_type" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="its_dataset_type" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="regions_covered" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="regions_covered_uri" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="regions_covered_label" type="string" indexed="true" stored="false" multiValued="true"/>
 
     <!-- catchall field, containing all other searchable text fields (implemented
          via copyField further on in this schema  -->
