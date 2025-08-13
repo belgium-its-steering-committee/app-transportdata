@@ -17,6 +17,7 @@ services:
         - TZ=${TZ}
     env_file:
       - .env
+      - .env.secrets
     links:
       - db
       - solr
@@ -29,7 +30,9 @@ services:
       - pip_cache:/root/.cache/pip
       - site_packages:/usr/local/lib/python3.10/site-packages
       - local_bin:/usr/local/bin
-      - home_dir:/srv/app/
+      # home_dir overrides all extensions installed through dockerfile
+      # see https://github.com/ckan/ckan-docker/issues/225
+      # - home_dir:/srv/app/
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost:5000"]

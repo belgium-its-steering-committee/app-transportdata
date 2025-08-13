@@ -12,24 +12,36 @@ FROM ckan/ckan-dev:2.11
 # For instance:
 #
 
+USER root
+RUN mkdir /srv/app/.local && chown ckan /srv/app/.local
+USER ckan
+
 ### Scheming ###
-# RUN  pip3 install -e 'git+https://github.com/ckan/ckanext-scheming.git@master#egg=ckanext-scheming'
+RUN  pip3 install -e git+https://github.com/ckan/ckanext-scheming.git@release-3.1.0#egg=ckanext-scheming
 
 ### Pages ###
-# RUN  pip3 install -e git+https://github.com/ckan/ckanext-pages.git#egg=ckanext-pages
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-pages.git@3.0.0#egg=ckanext-pages
 
-### Fluent ### 
-# RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git#egg=ckanext-fluent
+### Fluent ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git@2.0.0#egg=ckanext-fluent
 
-### Spatial Metadata ###
-# RUN  pip3 install -e git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial
+### Transportdata ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-transportdata.git@1.0.0#egg=ckanext-transportdata
 
-### DCAT ###
-#RUN  pip3 install -e git+https://github.com/ckan/ckanext-dcat.git@v0.0.6#egg=ckanext-dcat && \
-#     pip3 install -r https://raw.githubusercontent.com/ckan/ckanext-dcat/v0.0.6/requirements.txt
+### Benap ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@3.0.0#egg=ckanext-benap
 
-# Clone the extension(s) your are writing for your own project in the `src` folder
-# to get them mounted in this image at runtime
+### Hidegroups ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-hidegroups.git@2.0.0#egg=ckanext-hidegroups
+
+### Mailchimp ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-mailchimp.git@2.0.0#egg=ckanext-mailchimp
+
+### YTP Request ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-ytp-request.git@1.0.0#egg=ckanext-ytp-request
+
+### custom DCAT (including MobilityDCAT) ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-dcat-be-napits.git@0.1.0#egg=ckanext-dcat-be-napits
 
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
