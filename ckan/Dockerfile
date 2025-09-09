@@ -28,6 +28,9 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 ### YTP Request ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-ytp-request.git@1.0.0#egg=ckanext-ytp-request
 
+### DCAT ###
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-dcat.git@dcat-catalog-record#egg=ckanext-dcat
+
 ### custom DCAT (including MobilityDCAT) ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-dcat-be-napits.git@0.2.0#egg=ckanext-dcat-be-napits
 
