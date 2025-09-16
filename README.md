@@ -189,6 +189,9 @@ In VS Code:
 You can now set breakpoints and remote debug your CKAN development instance.
 
 
+Another useful env variable to set in local development for debugging is `WERKZEUG_DEBUG_PIN=off`.
+
+
 #### Updating the environment file for development mode
 
 The Docker Compose environment `.env` file by default is set up for production mode. There are a few changes needed if you would like to run in Development mode:

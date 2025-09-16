@@ -14,10 +14,10 @@ RUN  pip3 install -e git+https://github.com/ckan/ckanext-scheming.git@release-3.
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-pages.git@3.0.0#egg=ckanext-pages
 
 ### Fluent ### 
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git@2.0.0#egg=ckanext-fluent
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git@2.1.0#egg=ckanext-fluent
 
 ### Benap ###
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@4.1.0#egg=ckanext-benap
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@4.2.0#egg=ckanext-benap
 
 ### Hidegroups ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-hidegroups.git@2.0.0#egg=ckanext-hidegroups
