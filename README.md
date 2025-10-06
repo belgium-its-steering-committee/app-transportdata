@@ -22,6 +22,7 @@
 * [11. Manage new users](#11-manage-new-users)
 * [12. Changing the base image](#12-changing-the-base-image)
 * [13. Replacing DataPusher with XLoader](#13-replacing-datapusher-with-xLoader)
+* [14. Extra configurations for production instance](#14-extra-configurations-for-production-instance)
 
 
 ## 1.  Overview
@@ -59,7 +60,7 @@ more information.
 
 Use this if you are a maintainer and will not be making code changes to CKAN or to CKAN extensions
 
-Copy the included `.env.example` and rename it to `.env`. Modify it depending on your own needs.
+Copy the included `.env.secrets.example` and rename it to `.env.secrets`. Modify it depending on your own needs.
 
 > [!WARNING]
 > There is a sysadmin user created by default with the values defined in `CKAN_SYSADMIN_NAME` and `CKAN_SYSADMIN_PASSWORD` (`ckan_admin` and `test1234` by default). These must be changed before running this setup as a public CKAN instance.
@@ -94,7 +95,7 @@ After this step, CKAN should be running at `CKAN_SITE_URL` (by default https://l
 
 ### Development mode
 
-Use this mode if you are making code changes to CKAN and either creating new extensions or making code changes to existing extensions. This mode also uses the `.env` file for config options.
+Use this mode if you are making code changes to CKAN and either creating new extensions or making code changes to existing extensions. This mode also uses the `.env` and `.env.secrets` file for config options.
 
 To develop local extensions use the `docker-compose.dev.yml` file with help from the scripts under `bin`:
 
@@ -247,7 +248,7 @@ ckan -c /srv/app/ckan.ini validation init-db
 And then in our `Dockerfile.dev` file we install the extension and copy the initialization scripts:
 
 ```Dockerfile
-FROM ckan/ckan-base:2.9.7-dev
+FROM ckan/ckan-base:2.11-dev
 
 RUN pip install -e git+https://github.com/frictionlessdata/ckanext-validation.git#egg=ckanext-validation && \
     pip install -r https://raw.githubusercontent.com/frictionlessdata/ckanext-validation/master/requirements.txt
@@ -366,3 +367,6 @@ It is open and licensed under the GNU Affero General Public License (AGPL) v3.0
 whose full text may be found at:
 
 http://www.fsf.org/licensing/licenses/agpl-3.0.html
+
+## 14. Extra configurations for production instance
+Notifications are created when a new organization is created. To send these as emails, run `ckan notify send_emails`. See https://docs.ckan.org/en/2.11/maintaining/email-notifications.html for more information. It is advised to set a cronjob to do this automatically, e.g. `*/5 * * * * cd /data/app-transportdata && docker compose exec -T ckan ckan notify send_emails >> /var/log/ckan-email.log 2>&1`
