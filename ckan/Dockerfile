@@ -17,13 +17,13 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git@2.1.0#egg=ckanext-fluent
 
 ### Benap ###
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@4.3.0#egg=ckanext-benap
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@4.4.0#egg=ckanext-benap
 
 ### Hidegroups ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-hidegroups.git@2.0.0#egg=ckanext-hidegroups
 
 ### Mailchimp ###
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-mailchimp.git@2.0.0#egg=ckanext-mailchimp
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-mailchimp.git@3.1.0#egg=ckanext-mailchimp
 
 ### YTP Request ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-ytp-request.git@1.0.0#egg=ckanext-ytp-request
