@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <!-- 
-
 README: 
+This file is based on the ckan core schema: https://github.com/ckan/ckan/blob/master/ckan/config/solr/schema.xml
+The current copied version is: https://raw.githubusercontent.com/ckan/ckan/dev-v2.11/ckan/config/solr/schema.xml
+This schema contains some changes to support custom fields needed specifically by transportdata.
+All difference from the base schema have CUSTOM FIELD comment before the field definition.
 
-This file was copied from https://raw.githubusercontent.com/ckan/ckan/dev-v2.11/ckan/config/solr/schema.xml
-  and contains 3 extra fields at line 146 to 149
-
-Changes to the schema require a image rebuild.
-
+! Changes to the schema require a image rebuild 
+  and reindexing (docker compose exec ckan ckan search-index rebuild). !
  -->
+
 
 <!--
  Licensed to the Apache Software Foundation (ASF) under one or more
@@ -147,6 +147,7 @@ attribute with the form `ckan-X.Y` -->
     <field name="res_url" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="res_type" type="string" indexed="true" stored="true" multiValued="true"/>
 
+    <!-- CUSTOM FIELD START -->
     <field name="nap_type" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="its_dataset_type" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="regions_covered_uri" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -155,6 +156,7 @@ attribute with the form `ckan-X.Y` -->
     <field name="mobility_theme_label" type="string" indexed="true" stored="false" multiValued="true"/>
     <field name="format_uri" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="license_uri" type="string" indexed="true" stored="true" multiValued="true"/>
+    <!-- CUSTOM FIELD END -->
 
     <!-- catchall field, containing all other searchable text fields (implemented
          via copyField further on in this schema  -->
