@@ -17,7 +17,7 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git@2.1.0#egg=ckanext-fluent
 
 ### Benap ###
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@5.0.6#egg=ckanext-benap
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@5.0.7#egg=ckanext-benap
 
 ### Hidegroups ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-hidegroups.git@2.0.0#egg=ckanext-hidegroups
@@ -33,6 +33,10 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 
 ### custom DCAT (including MobilityDCAT) ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-dcat-be-napits.git@1.0.0#egg=ckanext-dcat-be-napits
+
+### ClamAV ###
+RUN pip3 install -e git+https://github.com/DataShades/ckanext-clamav.git@v1.1.1#egg=ckanext-clamav && \
+    pip3 install -r ${APP_DIR}/src/ckanext-clamav/requirements.txt
 
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
