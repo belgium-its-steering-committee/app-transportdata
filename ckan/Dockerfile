@@ -34,10 +34,6 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 ### custom DCAT (including MobilityDCAT) ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-dcat-be-napits.git@1.0.0#egg=ckanext-dcat-be-napits
 
-### ClamAV ###
-RUN pip3 install -e git+https://github.com/DataShades/ckanext-clamav.git@v1.1.1#egg=ckanext-clamav && \
-    pip3 install -r ${APP_DIR}/src/ckanext-clamav/requirements.txt
-
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
 
