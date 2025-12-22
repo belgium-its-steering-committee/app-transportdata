@@ -37,6 +37,12 @@ services:
       interval: 60s
       timeout: 10s
       retries: 3
+
+  clamav:
+    image: clamav/clamav:stable
+    networks:
+      - ckannet
+    restart: unless-stopped
     
   datapusher:
     networks:

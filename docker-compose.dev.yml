@@ -40,6 +40,10 @@ services:
       timeout: 10s
       retries: 3
 
+  clamav:
+    image: clamav/clamav:stable
+    restart: unless-stopped    
+
   datapusher:
     image: ckan/ckan-base-datapusher:${DATAPUSHER_VERSION}
     restart: unless-stopped
