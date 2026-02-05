@@ -64,6 +64,9 @@ fi
 echo "Loading the following plugins: $CKAN__PLUGINS"
 ckan config-tool $CKAN_INI "ckan.plugins = $CKAN__PLUGINS"
 
+# Ensure dev server watches extension sources for automatic reloads (helpers, etc)
+ckan config-tool $CKAN_INI "ckan.devserver.watch_patterns=/srv/app/src_extensions/**/*"
+
 # Update test-core.ini DB, SOLR & Redis settings
 echo "Loading test settings into test-core.ini"
 ckan config-tool $SRC_DIR/ckan/test-core.ini \
