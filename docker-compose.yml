@@ -1,3 +1,28 @@
+x-ckan-base: &ckan-base
+  build:
+    context: ckan/
+    dockerfile: Dockerfile
+    args:
+      - TZ=${TZ}
+  networks:
+    - ckannet
+    - dbnet
+    - solrnet
+    - redisnet
+  env_file:
+    - .env
+    - .env.secrets
+  depends_on:
+    db:
+      condition: service_healthy
+    solr:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+  volumes:
+    - ckan_storage:/var/lib/ckan
+    - pip_cache:/root/.cache/pip
+    - site_packages:/usr/lib/python3.10/site-packages
 volumes:
   ckan_storage:
   pg_data:
@@ -5,45 +30,28 @@ volumes:
   pip_cache:
   site_packages:
 
-services:    
+services:
   ckan:
-    build:
-      context: ckan/
-      dockerfile: Dockerfile
-      args:
-        - TZ=${TZ}
-    networks:
-      - ckannet
-      - dbnet
-      - solrnet
-      - redisnet
-    env_file:
-      - .env
-      - .env.secrets
-    depends_on:
-      db:
-        condition: service_healthy
-      solr:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-    volumes:
-      - ckan_storage:/var/lib/ckan
-      - pip_cache:/root/.cache/pip
-      - site_packages:/usr/lib/python3.10/site-packages
+    <<: *ckan-base
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost:5000/api/action/status_show"]
       interval: 60s
       timeout: 10s
       retries: 3
+  ckan-harvest-gather:
+    <<: *ckan-base
+    command: bash -c "ckan --config=/srv/app/ckan.ini harvester gather-consumer"
+    healthcheck:
+      disable: true
 
-  clamav:
-    image: clamav/clamav:stable
-    networks:
-      - ckannet
-    restart: unless-stopped
-    
+
+  ckan-harvest-fetch:
+    <<: *ckan-base
+    command: bash -c "ckan --config=/srv/app/ckan.ini harvester fetch-consumer"
+    healthcheck:
+      disable: true
+
   datapusher:
     networks:
       - ckannet

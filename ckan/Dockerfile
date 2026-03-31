@@ -38,6 +38,10 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 RUN pip3 install -e git+https://github.com/DataShades/ckanext-clamav.git@v1.1.1#egg=ckanext-clamav && \
     pip3 install -r ${APP_DIR}/src/ckanext-clamav/requirements.txt
 
+### Harvest ###
+RUN  pip3 install -e git+https://github.com/ckan/ckanext-harvest.git@v1.6.2#egg=ckanext-harvest && \
+     pip3 install -r ${APP_DIR}/src/ckanext-harvest/pip-requirements.txt
+
 # Copy custom initialization scripts
 COPY --chown=ckan-sys:ckan-sys docker-entrypoint.d/* /docker-entrypoint.d/
 
