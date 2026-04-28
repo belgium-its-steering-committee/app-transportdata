@@ -3,7 +3,7 @@ volumes:
   pg_data:
   solr_data:
   pip_cache:
-  site_packages:
+  site_packages_3_11:
   local_bin:
   home_dir:
 
@@ -28,7 +28,7 @@ services:
       - ckan_storage:/var/lib/ckan
       - ./src:/srv/app/src_extensions
       - pip_cache:/root/.cache/pip
-      - site_packages:/usr/local/lib/python3.10/site-packages
+      - site_packages_3_11:/usr/local/lib/python3.11/site-packages
       - local_bin:/usr/local/bin
       # home_dir overrides all extensions installed through dockerfile
       # see https://github.com/ckan/ckan-docker/issues/225

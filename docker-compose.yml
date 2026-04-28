@@ -3,7 +3,7 @@ volumes:
   pg_data:
   solr_data:
   pip_cache:
-  site_packages:
+  site_packages_3_11:
 
 services:    
   ckan:
@@ -30,7 +30,7 @@ services:
     volumes:
       - ckan_storage:/var/lib/ckan
       - pip_cache:/root/.cache/pip
-      - site_packages:/usr/lib/python3.10/site-packages
+      - site_packages_3_11:/usr/lib/python3.11/site-packages
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost:5000/api/action/status_show"]
