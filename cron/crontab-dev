@@ -1,0 +1,2 @@
+# min   hour    day     month   weekday command
+*/15	*		*		*		*		docker compose -p app-transportdata -f /srv/app/docker-compose.dev.yml exec ckan-dev ckan harvester run
