@@ -38,6 +38,27 @@ services:
       timeout: 10s
       retries: 3
 
+  ckan-harvest-gather:
+    extends:
+      service: ckan
+    command: ckan harvester gather-consumer
+    depends_on:
+      - ckan
+  ckan-harvest-fetch:
+    extends:
+      service: ckan
+    command: ckan harvester fetch-consumer
+    depends_on:
+      - ckan
+
+  cron:
+    build:
+      context: cron/
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/srv/app:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+
   clamav:
     image: clamav/clamav:stable
     networks:
