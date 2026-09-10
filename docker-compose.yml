@@ -5,7 +5,13 @@ volumes:
   pip_cache:
   site_packages_3_11:
 
-services:    
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "10"
+
+services:
   ckan:
     build:
       context: ckan/
@@ -37,6 +43,7 @@ services:
       interval: 60s
       timeout: 10s
       retries: 3
+    logging: *default-logging
 
   ckan-harvest-gather:
     extends:
@@ -58,13 +65,15 @@ services:
     volumes:
       - ./:/srv/app:ro
       - /var/run/docker.sock:/var/run/docker.sock
+    logging: *default-logging
 
   clamav:
     image: clamav/clamav:stable
     networks:
       - ckannet
     restart: unless-stopped
-    
+    logging: *default-logging
+
   datapusher:
     networks:
       - ckannet
@@ -76,6 +85,7 @@ services:
       interval: 60s
       timeout: 10s
       retries: 3
+    logging: *default-logging
 
   db:
     build:
@@ -97,7 +107,8 @@ services:
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
-     
+    logging: *default-logging
+
   solr:
     networks:
       - solrnet
@@ -111,6 +122,7 @@ services:
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost:8983/solr/"]
+    logging: *default-logging
 
   redis:
     image: redis:${REDIS_VERSION}
@@ -119,7 +131,8 @@ services:
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "redis-cli", "-e", "QUIT"]
-    
+    logging: *default-logging
+
 networks:
   webnet:
   ckannet:
