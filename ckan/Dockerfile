@@ -1,3 +1,11 @@
+# Image not available through Docker Hub.
+# 
+# Custom build with a higher python version through ckan-docker-base
+# git clone git@github.com:ckan/ckan-docker-base.git
+# ./build.sh build 2.11 3.11
+# 
+# Higher Python version is a requirement due to our mail service using Amazon SES as a provider and it requiring a higher TLS version than the default image Python version provides
+# more info on email: https://docs.ckan.org/en/2.12/extensions/plugins-toolkit.html#ckan.plugins.toolkit.ckan.plugins.toolkit.mail_user
 FROM ckan/ckan-base:2.11.4-py3.11
 
 # Install any extensions needed by your CKAN instance
@@ -17,7 +25,7 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git@2.1.0#egg=ckanext-fluent
 
 ### Benap ###
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@6.1.9#egg=ckanext-benap
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@form-based-facets#egg=ckanext-benap
 
 ### Hidegroups ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-hidegroups.git@2.0.0#egg=ckanext-hidegroups
