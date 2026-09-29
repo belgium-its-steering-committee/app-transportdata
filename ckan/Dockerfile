@@ -6,7 +6,7 @@
 # 
 # Higher Python version is a requirement due to our mail service using Amazon SES as a provider and it requiring a higher TLS version than the default image Python version provides
 # more info on email: https://docs.ckan.org/en/2.12/extensions/plugins-toolkit.html#ckan.plugins.toolkit.ckan.plugins.toolkit.mail_user
-FROM ckan/ckan-base:2.11.4-py3.11
+FROM ckan/ckan-base:2.11.6-py3.11
 
 # Install any extensions needed by your CKAN instance
 # See Dockerfile.dev for more details and examples
