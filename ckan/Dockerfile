@@ -21,11 +21,11 @@ RUN  pip3 install -e git+https://github.com/ckan/ckanext-scheming.git@release-3.
 ### Pages ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-pages.git@3.0.0#egg=ckanext-pages
 
-### Fluent ### 
+### Fluent ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-fluent.git@2.1.0#egg=ckanext-fluent
 
 ### Benap ###
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@form-based-facets#egg=ckanext-benap
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-benap.git@7.0.0#egg=ckanext-benap
 
 ### Hidegroups ###
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-hidegroups.git@2.0.0#egg=ckanext-hidegroups
@@ -40,10 +40,10 @@ RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckane
 RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-dcat.git@dcat-catalog-record#egg=ckanext-dcat
 
 ### custom DCAT (including MobilityDCAT) ###
-RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-dcat-be-napits.git@1.0.0#egg=ckanext-dcat-be-napits
+RUN  pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-dcat-be-napits.git@2.0.0#egg=ckanext-dcat-be-napits
 
 ### Harvester ###
-RUN pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-harvest.git@v1.6.2#egg=ckanext-harvest && \
+RUN pip3 install -e git+https://github.com/belgium-its-steering-committee/ckanext-harvest.git@v1.6.2-beits-1.0.0#egg=ckanext-harvest && \
     pip3 install -r ${APP_DIR}/src/ckanext-harvest/requirements.txt
 
 ### ClamAV ###
